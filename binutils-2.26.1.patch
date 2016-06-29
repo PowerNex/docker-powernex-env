@@ -1,6 +1,6 @@
-diff -urN binutils-2.26.org/bfd/config.bfd binutils-2.26/bfd/config.bfd
---- binutils-2.26.org/bfd/config.bfd	2016-04-09 22:57:44.949425201 +0200
-+++ binutils-2.26/bfd/config.bfd	2016-04-09 22:58:09.829425927 +0200
+diff -urN binutils-2.26.1.org/bfd/config.bfd binutils-2.26.1/bfd/config.bfd
+--- binutils-2.26.1.org/bfd/config.bfd	2016-04-09 22:57:44.949425201 +0200
++++ binutils-2.26.1/bfd/config.bfd	2016-04-09 22:58:09.829425927 +0200
 @@ -659,6 +659,11 @@
      targ64_selvecs="x86_64_elf64_nacl_vec x86_64_elf32_nacl_vec"
      targ_archs="$targ_archs bfd_arm_arch"
@@ -25,15 +25,15 @@ diff -urN binutils-2.26.org/bfd/config.bfd binutils-2.26/bfd/config.bfd
    x86_64-*-mingw* | x86_64-*-pe | x86_64-*-pep | x86_64-*-cygwin)
      targ_defvec=x86_64_pe_vec
      targ_selvecs="x86_64_pe_vec x86_64_pei_vec x86_64_pe_be_vec x86_64_elf64_vec l1om_elf64_vec k1om_elf64_vec i386_pe_vec i386_pei_vec i386_elf32_vec iamcu_elf32_vec"
-diff -urN binutils-2.26.org/config.sub binutils-2.26/config.sub
---- binutils-2.26.org/config.sub	2016-04-09 22:57:45.006091868 +0200
-+++ binutils-2.26/config.sub	2016-04-09 22:58:09.829425927 +0200
+diff -urN binutils-2.26.1.org/config.sub binutils-2.26.1/config.sub
+--- binutils-2.26.1.org/config.sub	2016-04-09 22:57:45.006091868 +0200
++++ binutils-2.26.1/config.sub	2016-04-09 22:58:09.829425927 +0200
 @@ -2,7 +2,7 @@
  # Configuration validation subroutine script.
  #   Copyright 1992-2015 Free Software Foundation, Inc.
  
 -timestamp='2015-07-28'
-+timestamp='2016-04-09'
++timestamp='2016-06-29'
  
  # This file is free software; you can redistribute it and/or modify it
  # under the terms of the GNU General Public License as published by
@@ -46,9 +46,9 @@ diff -urN binutils-2.26.org/config.sub binutils-2.26/config.sub
  	      | -skyos* | -haiku* | -rdos* | -toppers* | -drops* | -es* | -tirtos*)
  	# Remember, each alternative MUST END IN *, to match a version number.
  		;;
-diff -urN binutils-2.26.org/configure binutils-2.26/configure
---- binutils-2.26.org/configure	2016-04-09 22:57:45.006091868 +0200
-+++ binutils-2.26/configure	2016-04-09 23:47:12.429511791 +0200
+diff -urN binutils-2.26.1.org/configure binutils-2.26.1/configure
+--- binutils-2.26.1.org/configure	2016-04-09 22:57:45.006091868 +0200
++++ binutils-2.26.1/configure	2016-04-09 23:47:12.429511791 +0200
 @@ -2958,7 +2958,7 @@
        *-*-elf* | *-*-sysv4* | *-*-unixware* | *-*-eabi* | hppa*64*-*-hpux* \
        | *-*-linux* | *-*-gnu* | frv-*-uclinux* | *-*-irix5* | *-*-irix6* \
@@ -58,9 +58,9 @@ diff -urN binutils-2.26.org/configure binutils-2.26/configure
          case "${target}" in
            *-*-linux*aout* | *-*-linux*oldld*)
              ;;
-diff -urN binutils-2.26.org/configure.ac binutils-2.26/configure.ac
---- binutils-2.26.org/configure.ac	2016-04-09 22:57:45.006091868 +0200
-+++ binutils-2.26/configure.ac	2016-04-09 23:31:05.559483577 +0200
+diff -urN binutils-2.26.1.org/configure.ac binutils-2.26.1/configure.ac
+--- binutils-2.26.1.org/configure.ac	2016-04-09 22:57:45.006091868 +0200
++++ binutils-2.26.1/configure.ac	2016-04-09 23:31:05.559483577 +0200
 @@ -112,11 +112,11 @@
  ### or a host dependent tool.  Then put it into the appropriate list
  ### (library or tools, host or target), doing a dependency sort.
@@ -244,9 +244,9 @@ diff -urN binutils-2.26.org/configure.ac binutils-2.26/configure.ac
  MAINT=$MAINTAINER_MODE_TRUE
  AC_SUBST(MAINT)dnl
  
-diff -urN binutils-2.26.org/gas/configure.tgt binutils-2.26/gas/configure.tgt
---- binutils-2.26.org/gas/configure.tgt	2016-04-09 22:57:45.026091869 +0200
-+++ binutils-2.26/gas/configure.tgt	2016-04-09 22:58:09.829425927 +0200
+diff -urN binutils-2.26.1.org/gas/configure.tgt binutils-2.26.1/gas/configure.tgt
+--- binutils-2.26.1.org/gas/configure.tgt	2016-04-09 22:57:45.026091869 +0200
++++ binutils-2.26.1/gas/configure.tgt	2016-04-09 22:58:09.829425927 +0200
 @@ -225,6 +225,7 @@
      case ${cpu} in
        x86_64*)				arch=x86_64:32 ;;
@@ -255,9 +255,9 @@ diff -urN binutils-2.26.org/gas/configure.tgt binutils-2.26/gas/configure.tgt
    i386-*-netbsd0.8)			fmt=aout em=386bsd ;;
    i386-*-netbsdpe*)			fmt=coff em=pe ;;
    i386-*-netbsd*-gnu* | \
-diff -urN binutils-2.26.org/ld/configure.tgt binutils-2.26/ld/configure.tgt
---- binutils-2.26.org/ld/configure.tgt	2016-04-09 22:57:45.926091895 +0200
-+++ binutils-2.26/ld/configure.tgt	2016-04-09 23:00:54.872764076 +0200
+diff -urN binutils-2.26.1.org/ld/configure.tgt binutils-2.26.1/ld/configure.tgt
+--- binutils-2.26.1.org/ld/configure.tgt	2016-04-09 22:57:45.926091895 +0200
++++ binutils-2.26.1/ld/configure.tgt	2016-04-09 23:00:54.872764076 +0200
 @@ -383,6 +383,15 @@
  			targ_extra_libpath=$targ_extra_emuls
  			tdir_elf_i386_nacl=`echo ${targ_alias} | sed -e 's/x86_64/i386/'`
@@ -274,21 +274,21 @@ diff -urN binutils-2.26.org/ld/configure.tgt binutils-2.26/ld/configure.tgt
  i860-*-coff)		targ_emul=coff_i860 ;;
  i860-stardent-sysv4* | i860-stardent-elf*)
  			targ_emul=elf32_i860
-diff -urN binutils-2.26.org/ld/emulparams/elf_i386_powernex.sh binutils-2.26/ld/emulparams/elf_i386_powernex.sh
---- binutils-2.26.org/ld/emulparams/elf_i386_powernex.sh	1970-01-01 01:00:00.000000000 +0100
-+++ binutils-2.26/ld/emulparams/elf_i386_powernex.sh	2016-04-09 22:58:09.829425927 +0200
+diff -urN binutils-2.26.1.org/ld/emulparams/elf_i386_powernex.sh binutils-2.26.1/ld/emulparams/elf_i386_powernex.sh
+--- binutils-2.26.1.org/ld/emulparams/elf_i386_powernex.sh	1970-01-01 01:00:00.000000000 +0100
++++ binutils-2.26.1/ld/emulparams/elf_i386_powernex.sh	2016-04-09 22:58:09.829425927 +0200
 @@ -0,0 +1,3 @@
 +. ${srcdir}/emulparams/elf_i386.sh
 +GENERATE_SHLIB_SCRIPT=yes
 +GENERATE_PIE_SCRIPT=yes
-diff -urN binutils-2.26.org/ld/emulparams/elf_x86_64_powernex.sh binutils-2.26/ld/emulparams/elf_x86_64_powernex.sh
---- binutils-2.26.org/ld/emulparams/elf_x86_64_powernex.sh	1970-01-01 01:00:00.000000000 +0100
-+++ binutils-2.26/ld/emulparams/elf_x86_64_powernex.sh	2016-04-09 22:58:09.829425927 +0200
+diff -urN binutils-2.26.1.org/ld/emulparams/elf_x86_64_powernex.sh binutils-2.26.1/ld/emulparams/elf_x86_64_powernex.sh
+--- binutils-2.26.1.org/ld/emulparams/elf_x86_64_powernex.sh	1970-01-01 01:00:00.000000000 +0100
++++ binutils-2.26.1/ld/emulparams/elf_x86_64_powernex.sh	2016-04-09 22:58:09.829425927 +0200
 @@ -0,0 +1 @@
 +. ${srcdir}/emulparams/elf_x86_64.sh
-diff -urN binutils-2.26.org/ld/Makefile.am binutils-2.26/ld/Makefile.am
---- binutils-2.26.org/ld/Makefile.am	2016-04-09 22:57:45.942758563 +0200
-+++ binutils-2.26/ld/Makefile.am	2016-04-09 23:04:36.392770539 +0200
+diff -urN binutils-2.26.1.org/ld/Makefile.am binutils-2.26.1/ld/Makefile.am
+--- binutils-2.26.1.org/ld/Makefile.am	2016-04-09 22:57:45.942758563 +0200
++++ binutils-2.26.1/ld/Makefile.am	2016-04-09 23:04:36.392770539 +0200
 @@ -285,6 +285,7 @@
  	eelf_i386_fbsd.c \
  	eelf_i386_ldso.c \
@@ -327,9 +327,9 @@ diff -urN binutils-2.26.org/ld/Makefile.am binutils-2.26/ld/Makefile.am
  eelf_x86_64_sol2.c: $(srcdir)/emulparams/elf_x86_64_sol2.sh \
    $(srcdir)/emulparams/elf_x86_64.sh \
    $(srcdir)/emulparams/solaris2.sh \
-diff -urN binutils-2.26.org/ld/Makefile.in binutils-2.26/ld/Makefile.in
---- binutils-2.26.org/ld/Makefile.in	2016-04-09 22:57:45.942758563 +0200
-+++ binutils-2.26/ld/Makefile.in	2016-04-09 23:05:50.229439360 +0200
+diff -urN binutils-2.26.1.org/ld/Makefile.in binutils-2.26.1/ld/Makefile.in
+--- binutils-2.26.1.org/ld/Makefile.in	2016-04-09 22:57:45.942758563 +0200
++++ binutils-2.26.1/ld/Makefile.in	2016-04-09 23:05:50.229439360 +0200
 @@ -392,22 +392,22 @@
  
  # Automake 1.10+ disables lex and yacc output file regeneration if
