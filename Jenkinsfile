@@ -27,12 +27,14 @@ pipeline {
 
 		stage('archive') {
 			steps {
-				withDockerContainer("wild/powernex-env") {
-					sh """
-					cd /opt/cc
-					tar -cvfJ powernex-env.tar.xz *
-					"""
-					stash "powernex-env" "/opt/cc/powernex-env.tar.xz"
+				node("worker") {
+					withDockerContainer("wild/powernex-env") {
+						sh """
+						cd /opt/cc
+						tar -cvfJ powernex-env.tar.xz *
+						"""
+						stash "powernex-env" "/opt/cc/powernex-env.tar.xz"
+					}
 				}
 				unstash "powernex-env"
 				archiveArtifacts artifacts: 'powernex-env.tar.xz', fingerprint: true
