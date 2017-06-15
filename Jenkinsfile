@@ -27,10 +27,9 @@ pipeline {
 
 		stage('archive') {
 			steps {
-				node("worker") {
-					withDockerContainer("wild/powernex-env") {
-						sh """
-						cd /opt/cc
+				withDockerContainer("wild/powernex-env") {
+					steps {
+						sh """cd /opt/cc
 						tar -cvfJ powernex-env.tar.xz *
 						"""
 						stash "powernex-env" "/opt/cc/powernex-env.tar.xz"
