@@ -24,19 +24,6 @@ pipeline {
 				}
       }
     }
-
-		stage('archive') {
-			steps {
-				withDockerContainer("wild/powernex-env") {
-					sh """cd /opt/cc
-					tar -cvfJ powernex-env.tar.xz *
-					"""
-					stash name: "powernex-env", includes: "/opt/cc/powernex-env.tar.xz"
-				}
-				unstash name: "powernex-env"
-				archiveArtifacts artifacts: 'powernex-env.tar.xz', fingerprint: true
-			}
-		}
   }
 
   post {
