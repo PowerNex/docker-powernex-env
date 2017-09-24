@@ -8,5 +8,6 @@ MAINTAINER Dan Printzell <me@vild.io>
 
 RUN pacman -Syyu texinfo python guile2.0 ncurses expat xz --noprogressbar --noconfirm
 
-RUN curl https://ci.vild.io/job/PowerNex/job/powernex-dmd/job/PowerNexCompiler/lastSuccessfulBuild/artifact/powernex-dmd -o /bin/powernex-dmd && chmod +x /usr/bin/powernex-dmd
-RUN curl https://ci.vild.io/job/PowerNex/job/powernex-binutils/job/master/lastSuccessfulBuild/artifact/powernex-binutils.tar.xz | tar xkJ --no-same-owner -C /usr || true
+RUN curl https://raw.githubusercontent.com/PowerNex/PowerNex/master/toolchainManager.d -o /tmp/toolchainManager.d && chmod +x /tmp/toolchainManager.d
+RUN ln -s /usr/ cc
+RUN /tmp/toolchainManager.d --noconfirm
