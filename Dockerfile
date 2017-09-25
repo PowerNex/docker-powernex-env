@@ -6,7 +6,7 @@
 FROM wild/archlinux-dlang
 MAINTAINER Dan Printzell <me@vild.io>
 
-RUN pacman -Sy texinfo python guile2.0 ncurses expat xz ninja grub --noprogressbar --noconfirm
+RUN pacman -Sy ninja xorriso grub --noprogressbar --noconfirm
 
 RUN curl https://raw.githubusercontent.com/PowerNex/PowerNex/master/toolchainManager.d -o /tmp/toolchainManager.d && chmod +x /tmp/toolchainManager.d
 RUN ln -s /usr/ cc
