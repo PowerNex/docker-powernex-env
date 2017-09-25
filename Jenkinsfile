@@ -8,7 +8,7 @@ pipeline {
 						setGitHubPullRequestStatus state: 'PENDING', context: "${env.JOB_NAME}", message: "Building Docker image"
 				}
 				ansiColor('xterm') {
-        	sh 'docker build -t "wild/powernex-env" --no-cache --pull .'
+					sh 'docker build -t "wild/powernex-env" --no-cache --pull .'
 				}
       }
     }
@@ -20,7 +20,7 @@ pipeline {
 						setGitHubPullRequestStatus state: 'PENDING', context: "${env.JOB_NAME}", message: "Publishing Docker image"
 				}
 				ansiColor('xterm') {
-       		sh 'docker push "wild/powernex-env"'
+					sh 'docker push "wild/powernex-env"'
 				}
       }
     }
