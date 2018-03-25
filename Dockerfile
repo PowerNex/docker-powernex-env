@@ -9,5 +9,5 @@ MAINTAINER Dan Printzell <me@vild.io>
 RUN pacman -Sy ninja xorriso grub --noprogressbar --noconfirm
 
 RUN curl https://raw.githubusercontent.com/PowerNex/PowerNex/master/toolchainManager.d -o /tmp/toolchainManager.d && chmod +x /tmp/toolchainManager.d
-RUN ln -s /usr/ cc
+RUN mkdir build; ln -s /usr/ build/cc
 RUN /tmp/toolchainManager.d --noconfirm
